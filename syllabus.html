@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>EduStack : Syllabus</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/icon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .syllabus-table {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .syllabus-table thead th {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+        .syllabus-table tbody tr:nth-of-type(odd) {
+            background: #f7faff;
+        }
+        .syllabus-table tbody tr:nth-of-type(even) {
+            background: #ffffff;
+        }
+        .syllabus-table th, .syllabus-table td {
+            vertical-align: middle;
+            padding: 0.75rem 0.95rem;
+            border-right: 1px solid #d6e3ff;
+            color: #1a2a47;
+        }
+        .syllabus-table th:last-child, .syllabus-table td:last-child {
+            border-right: none;
+        }
+        .syllabus-table thead th {
+            border-right: 1px solid #d6e3ff;
+        }
+        .syllabus-table thead th:last-child {
+            border-right: none;
+        }
+        .syllabus-section + .syllabus-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+        }
+        .badge{border-radius: 30px; padding: 8px 0.7rem;}
+        .badge-low { background: #c5c5c6; color: #1a1a1a; }
+        .badge-medium { background: #ffe8a8; color: #4f3f1f; }
+        .badge-high { background: #ffe0e0; color: #b00000; }
+        .badge-very-high { background: #bad4ff; color: #153e80; }
+
+        .nav-tabs {
+            border-bottom: 2px solid #e9ecef;
+            background: #f8f9fa;
+            border-radius: 8px 8px 0 0;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            background: transparent;
+            color: #6c757d;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 15px 25px;
+            border-radius: 8px 8px 0 0;
+            transition: all 0.2s ease;
+            margin-right: 5px;
+            position: relative;
+        }
+        .nav-tabs .nav-link:hover {
+            color: var(--primary);
+            background: rgba(0, 123, 255, 0.05);
+        }
+        .nav-tabs .nav-link.active {
+            background: #ffffff;
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            font-weight: 600;
+        }
+        .nav-tabs .nav-link.active:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: row;
+                justify-content: center;
+                background: #f8f9fa;
+                border-radius: 8px 8px 0 0;
+                padding: 8px;
+                margin-bottom: 2rem;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .nav-tabs::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-tabs .nav-link {
+                flex: 0 0 auto;
+                margin-right: 8px;
+                margin-bottom: 0;
+                border-radius: 6px;
+                padding: 10px 16px;
+                font-size: 0.95rem;
+                text-align: center;
+                border: 1px solid #e9ecef;
+                white-space: nowrap;
+                min-width: 120px;
+            }
+            .nav-tabs .nav-link:last-child {
+                margin-right: 0;
+            }
+            .nav-tabs .nav-link.active {
+                border-color: var(--primary);
+                border-bottom: 1px solid var(--primary);
+                background: rgba(0, 123, 255, 0.05);
+            }
+
+            .syllabus-table {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+            .syllabus-table th,
+            .syllabus-table td {
+                padding: 0.5rem 0.4rem;
+                white-space: nowrap;
+            }
+            .syllabus-table th:nth-child(1),
+            .syllabus-table td:nth-child(1) {
+                width: 40px;
+                min-width: 40px;
+            }
+            .syllabus-table th:nth-child(2),
+            .syllabus-table td:nth-child(2) {
+                min-width: 200px;
+            }
+            .syllabus-table th:nth-child(3),
+            .syllabus-table td:nth-child(3) {
+                width: 100px;
+                min-width: 100px;
+            }
+
+            .badge {
+                font-size: 0.75rem;
+                padding: 4px 8px;
+                border-radius: 20px;
+            }
+
+            .syllabus-section + .syllabus-section {
+                margin-top: 1rem;
+                padding-top: 1rem;
+            }
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nav-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 0.95rem;
+            }
+
+            .syllabus-table {
+                font-size: 0.85rem;
+            }
+            .syllabus-table th,
+            .syllabus-table td {
+                padding: 0.4rem 0.3rem;
+            }
+
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .table-responsive::-webkit-scrollbar {
+                display: none;
+            }
+            .syllabus-table {
+                min-width: 400px;
+            }
+
+            .badge {
+                font-size: 0.7rem;
+                padding: 3px 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <p class="m-2 fw-bold" style="font-size: 25px;"><img src="img/icon.png" alt="" height="50px">Edu<span
+                    style="color: var(--primary);">Stack</span></p>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Materials</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="modules.html" class="dropdown-item">Modules</a>
+                        <a href="classic.html" class="dropdown-item">Classic Books</a>
+                    </div>
+                </div>
+                <a href="syllabus.html" class="nav-item nav-link active">Syllabus</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="#" class="nav-item nav-link">
+                    
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Syllabus Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="mb-5" style="color: var(--primary);">IIT-JEE Syllabus</h1>
+            </div>
+            <ul class="nav nav-tabs justify-content-center" id="syllabusTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="class11-tab" data-bs-toggle="tab" data-bs-target="#class11" type="button" role="tab" aria-controls="class11" aria-selected="true">Class 11</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="class12-tab" data-bs-toggle="tab" data-bs-target="#class12" type="button" role="tab" aria-controls="class12" aria-selected="false">Class 12</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="syllabusTabContent">
+                <div class="tab-pane fade show active" id="class11" role="tabpanel" aria-labelledby="class11-tab">
+                    <div class="syllabus-section">
+                        <h3 class="mt-4">Physics</h3>
+                        <div class="table-responsive">
+                        <table class="table syllabus-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Chapter Name</th>
+                                <th>JEE Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Units and Measurements</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>2</td><td>Motion in a Straight Line</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>3</td><td>Motion in a Plane</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>4</td><td>Laws of Motion</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>5</td><td>Work, Energy and Power</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>6</td><td>System of Particles and Rotational Motion</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>7</td><td>Gravitation</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>8</td><td>Mechanical Properties of Solids</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>9</td><td>Mechanical Properties of Fluids</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>10</td><td>Thermal Properties of Matter</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>11</td><td>Thermodynamics</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>12</td><td>Kinetic Theory of Gases</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>13</td><td>Oscillations</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>14</td><td>Waves</td><td><span class="badge badge-high">High</span></td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                    <div class="syllabus-section">
+                    <h3 class="mt-4">Chemistry</h3>
+                    <div class="table-responsive">
+                    <table class="table syllabus-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Chapter Name</th>
+                                <th>JEE Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Some Basic Concepts of Chemistry</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>2</td><td>Structure of Atom</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>3</td><td>Classification of Elements and Periodicity</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>4</td><td>Chemical Bonding and Molecular Structure</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>5</td><td>States of Matter: Gases and Liquids</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>6</td><td>Thermodynamics</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>7</td><td>Equilibrium</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>8</td><td>Redox Reactions</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>9</td><td>Hydrogen</td><td><span class="badge badge-low">Low</span></td></tr>
+                            <tr><td>10</td><td>The s-Block Elements</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>11</td><td>The p-Block Elements (Group 13 and 14)</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>12</td><td>Organic Chemistry: Basic Principles</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>13</td><td>Hydrocarbons</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>14</td><td>Environmental Chemistry</td><td><span class="badge badge-low">Low</span></td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                    <div class="syllabus-section">
+                    <h3 class="mt-4">Mathematics</h3>
+                    <div class="table-responsive">
+                    <table class="table syllabus-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Chapter Name</th>
+                                <th>JEE Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Sets and Relations</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>2</td><td>Functions</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>3</td><td>Trigonometric Functions</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>4</td><td>Principle of Mathematical Induction</td><td><span class="badge badge-low">Low</span></td></tr>
+                            <tr><td>5</td><td>Complex Numbers</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>6</td><td>Quadratic Equations</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>7</td><td>Linear Inequalities</td><td><span class="badge badge-low">Low</span></td></tr>
+                            <tr><td>8</td><td>Permutations and Combinations</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>9</td><td>Binomial Theorem</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>10</td><td>Sequences and Series</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>11</td><td>Straight Lines</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>12</td><td>Conic Sections</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>13</td><td>Introduction to 3D Geometry</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>14</td><td>Limits and Derivatives</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>15</td><td>Statistics</td><td><span class="badge badge-low">Low</span></td></tr>
+                            <tr><td>16</td><td>Probability</td><td><span class="badge badge-high">High</span></td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="class12" role="tabpanel" aria-labelledby="class12-tab">
+                    <div class="syllabus-section">
+                    <h3 class="mt-4">Physics</h3>
+                    <div class="table-responsive">
+                    <table class="table syllabus-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Chapter Name</th>
+                                <th>JEE Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Electrostatics</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>2</td><td>Current Electricity</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>3</td><td>Magnetic Effects of Current and Magnetism</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>4</td><td>Electromagnetic Induction and Alternating Currents</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>5</td><td>Electromagnetic Waves</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>6</td><td>Optics</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>7</td><td>Dual Nature of Matter and Radiation</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>8</td><td>Atoms and Nuclei</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>9</td><td>Electronic Devices</td><td><span class="badge badge-high">High</span></td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                    <div class="syllabus-section">
+                    <h3 class="mt-4">Chemistry</h3>
+                    <div class="table-responsive">
+                    <table class="table syllabus-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Chapter Name</th>
+                                <th>JEE Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Solid State</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>2</td><td>Solutions</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>3</td><td>Electrochemistry</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>4</td><td>Chemical Kinetics</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>5</td><td>Surface Chemistry</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>6</td><td>General Principles and Processes of Isolation of Elements</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>7</td><td>p- Block Elements</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>8</td><td>d and f Block Elements</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>9</td><td>Coordination Compounds</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>10</td><td>Haloalkanes and Haloarenes</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>11</td><td>Alcohols, Phenols and Ethers</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>12</td><td>Aldehydes, Ketones and Carboxylic Acids</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>13</td><td>Organic Compounds Containing Nitrogen</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>14</td><td>Biomolecules</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>15</td><td>Polymers</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>16</td><td>Chemistry in Everyday Life</td><td><span class="badge badge-low">Low</span></td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                    <div class="syllabus-section">
+                    <h3 class="mt-4">Mathematics</h3>
+                    <div class="table-responsive">
+                    <table class="table syllabus-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Chapter Name</th>
+                                <th>JEE Importance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Relations and Functions</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>2</td><td>Inverse Trigonometric Functions</td><td><span class="badge badge-medium">Medium</span></td></tr>
+                            <tr><td>3</td><td>Matrices</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>4</td><td>Determinants</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>5</td><td>Continuity and Differentiability</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>6</td><td>Application of Derivatives</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>7</td><td>Integrals</td><td><span class="badge badge-very-high">Very High</span></td></tr>
+                            <tr><td>8</td><td>Application of Integrals</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>9</td><td>Differential Equations</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>10</td><td>Vector Algebra</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>11</td><td>Three-dimensional Geometry</td><td><span class="badge badge-high">High</span></td></tr>
+                            <tr><td>12</td><td>Linear Programming</td><td><span class="badge badge-low">Low</span></td></tr>
+                            <tr><td>13</td><td>Probability</td><td><span class="badge badge-high">High</span></td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Syllabus End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/classicData.js"></script>
+    <script src="js/classic.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
